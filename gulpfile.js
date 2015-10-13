@@ -63,7 +63,7 @@ var buildScript = function (file, watch) {
 gulp.task('bundle-css', function () {
     return gulp.src(['./node_modules/font-awesome/css/font-awesome.css', paths.extCss, paths.css])
         .pipe(concat('bundle.css'))
-//      .pipe(minifyCSS())
+        .pipe(minifyCSS())
         .pipe(size())
         .pipe(gulp.dest(paths.cssBuild));
 });
