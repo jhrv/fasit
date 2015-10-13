@@ -18,8 +18,8 @@ var paths = {
     entryPoint: './frontend/src/js/components/app.jsx',
     js: ['./frontend/src/js/**/*.jsx', './app.jsx'],
     jsLibs: './frontend/src/lib/**/*.js',
-    css: './frontend/src/css/**/*.css',
     fonts: ['./frontend/src/fonts/**/*', './node_modules/font-awesome/fonts/**/*'],
+    css: './frontend/src/css/**/*.css',
     extCss: './frontend/src/ext/css/**/*.css',
     buildDir: './frontend/build',
     jsBuild: './frontend/build/js',
@@ -36,7 +36,6 @@ var buildScript = function (file, watch) {
     props.debug = true
     
     var bundler = watch ? watchify(browserify(props)) : browserify(props)
-
     bundler.transform(reactify)
 
     var rebundle = function () {
@@ -64,7 +63,7 @@ var buildScript = function (file, watch) {
 gulp.task('bundle-css', function () {
     return gulp.src(['./node_modules/font-awesome/css/font-awesome.css', paths.extCss, paths.css])
         .pipe(concat('bundle.css'))
-        .pipe(minifyCSS())
+//      .pipe(minifyCSS())
         .pipe(size())
         .pipe(gulp.dest(paths.cssBuild));
 });
@@ -73,6 +72,17 @@ gulp.task('build', function() {
     return buildScript(paths.entryPoint, false)
 })
 
-gulp.task('default', ['build'], function() {
+gulp.task('copy-indexhtml', function () {
+    return gulp.src(paths.indexHtml)
+        .pipe(gulp.dest(paths.buildDir));
+});
+
+gulp.task('copy-fonts', function () {
+    return gulp.src(paths.fonts)
+        .pipe(gulp.dest(paths.fontsBuild));
+});
+
+gulp.task('default', ['build', 'copy-fonts', 'bundle-css', 'copy-indexhtml'], function() {
     return buildScript(paths.entryPoint, true)
 })
+

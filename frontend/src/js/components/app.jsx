@@ -13,11 +13,11 @@ var Skya = React.createClass({
                                     <i className="fa fa-square fa-stack-2x logo"></i>
                                     <strong className="fa-stack-1x fa-stack-text fa-comment-text ">S</strong>
                                 </span>
-                                &nbsp;sera</a>
+                                &nbsp;skya</a>
                         </div>
                     </div>
                 </nav>
-                Her kommer innhold giitt
+                Her kommer innhold
             </div>
         )
     }
