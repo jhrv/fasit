@@ -1,21 +1,21 @@
 {
-  "name": "skya",
+  "name": "fasit",
   "version": "1.0.0",
-  "description": "",
+  "description": "frontend for fasit",
   "main": "server.js",
   "scripts": {
     "test": "npm test"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/navikt/skya"
+    "url": "https://github.com/navikt/fasit"
   },
   "author": "Johnny Horvi <johnny.horvi@nav.no>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/navikt/skya/issues"
+    "url": "https://github.com/navikt/fasit/issues"
   },
-  "homepage": "https://github.com/navikt/skya",
+  "homepage": "https://github.com/navikt/fasit",
   "devDependencies": {
     "bootstrap": "^3.3.5",
     "browserify": "^11.2.0",
