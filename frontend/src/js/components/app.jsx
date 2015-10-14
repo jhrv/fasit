@@ -4,6 +4,7 @@ var ReactRouter = require('react-router')
 var Router = ReactRouter.Router
 var Route = ReactRouter.Route
 var Link = ReactRouter.Link
+var createBrowserHistory = require('history/lib/createBrowserHistory')
 
 var App = React.createClass({
     render: function () {
@@ -22,9 +23,9 @@ var App = React.createClass({
                         </div>
                         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul className="nav navbar-nav">
-                                <li><Link to="/">applications</Link></li>
-                                <li><Link to="/">environments</Link></li>
-                                <li><Link to="/">resources</Link></li>
+                                <li><Link to="/applications">applications</Link></li>
+                                <li><Link to="/environments">environments</Link></li>
+                                <li><Link to="/resources">resources</Link></li>
                                 <li><Link to="/nodes">nodes</Link></li>
                             </ul>
                         </div>
@@ -62,10 +63,34 @@ var Node = React.createClass({
         )}
 })
 
+var Applications = React.createClass({
+    render: function(){
+        return (
+                <h1>Here be applications</h1>
+        )}
+})
+
+var Environments = React.createClass({
+    render: function(){
+        return (
+                <h1>Here be dragons</h1>
+        )}
+})
+
+var Resources = React.createClass({
+    render: function(){
+        return (
+                <h1>Here be .... r e s o u r c e</h1>
+        )}
+})
+    
 ReactDOM.render((
-    <Router>
+    <Router history={createBrowserHistory()}>
         <Route path="/" component={App}>
             <Route path="/nodes" component={Nodes} />
+            <Route path="/applications" component={Applications} />
+            <Route path="/environments" component={Environments} />
+            <Route path="/resources" component={Resources} />
             <Route path="/nodes/:node" component={Node} />
         </Route>
     </Router>), document.getElementById("content"));
