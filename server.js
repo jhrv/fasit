@@ -3,9 +3,9 @@
 var express = require('express')
 var app = express()
 var path = require('path')
-var logger = require('morgan')('combined')
+var logger = require('morgan')
 
-app.use(logger)
+app.use(logger('combined'))
 
 // serve static html
 app.use(express.static(__dirname + "/frontend/build"))
