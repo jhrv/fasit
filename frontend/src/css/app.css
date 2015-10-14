@@ -1,12 +1,5 @@
 body{ padding-top: 70px;}
 
-@font-face {
-    font-family: "Open Sans";
-    font-style: normal;
-    font-weight: 500;
-    src: local('Open Sans'), local('OpenSans'), url('/fonts/opensans/opensans.woff');
-}
-
 nav.sera-header {
     background-color: #2b2b2b;
     color: #ffffff;

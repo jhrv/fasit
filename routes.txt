@@ -1,0 +1,32 @@
+Fasit routes
+
+:  = var
+#  = delside/tab
+-> = link
+
+nodes
+    :node
+
+instances
+    :instance
+        #nodes -> /nodes/:node
+        #used resources (+ fra hvem?)
+        #exposed resources (+ hvem bruker?)
+        
+environments
+    :environment
+        instances
+            -> /instances/:instance
+        clusters
+            :cluster
+        nodes
+            -> /nodes/:node
+
+applications
+    :application
+        instances
+            -> /instances/:instance
+
+resources
+    :resource
+
