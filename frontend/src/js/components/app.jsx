@@ -88,9 +88,9 @@ ReactDOM.render((
     <Router history={createBrowserHistory()}>
         <Route path="/" component={App}>
             <Route path="/nodes" component={Nodes} />
+            <Route path="/nodes/:node" component={Node} />
             <Route path="/applications" component={Applications} />
             <Route path="/environments" component={Environments} />
             <Route path="/resources" component={Resources} />
-            <Route path="/nodes/:node" component={Node} />
         </Route>
     </Router>), document.getElementById("content"));
