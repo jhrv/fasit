@@ -5,9 +5,17 @@ var Router = ReactRouter.Router
 var Route = ReactRouter.Route
 var Link = ReactRouter.Link
 var createBrowserHistory = require('history/lib/createBrowserHistory')
+var Nodes = require('./nodes.jsx')
+var Node = require('./node.jsx')
+var Applications = require('./applications.jsx')
+var Environments = require('./environments.jsx')
+var Resources = require('./resources.jsx')
 
 var App = React.createClass({
     render: function () {
+
+        console.log("this.props.location",this.props.location) // contains path information
+        console.log("this.props.param",this.props.param) // contains path information
         return (
             <div>
                 <nav className="navbar navbar-fixed-top sera-header">
@@ -31,7 +39,6 @@ var App = React.createClass({
                         </div>
                     </div>
                 </nav>
-
                 <div className="container">
                     {this.props.children}
                 </div>
@@ -40,49 +47,6 @@ var App = React.createClass({
     }
 });
 
-var Nodes = React.createClass({
-
-    fetchNodes: function(){
-        return [{"hostname": "node1.domain.com"},
-                {"hostname": "node2.domain.com"},
-                {"hostname": "node3.domain.com"}]
-    },
-    
-    render: function(){
-        return (
-                <ul>
-                    {this.fetchNodes().map(function(node){return <li key={node.hostname}><Link to={"/nodes/" + node.hostname}>{node.hostname}</Link></li>})}
-                </ul>
-    )}
-});
-
-var Node = React.createClass({
-    render: function(){
-        return (
-                <h1>{this.props.params.node}</h1>
-        )}
-})
-
-var Applications = React.createClass({
-    render: function(){
-        return (
-                <h1>Here be applications</h1>
-        )}
-})
-
-var Environments = React.createClass({
-    render: function(){
-        return (
-                <h1>Here be dragons</h1>
-        )}
-})
-
-var Resources = React.createClass({
-    render: function(){
-        return (
-                <h1>Here be .... r e s o u r c e</h1>
-        )}
-})
     
 ReactDOM.render((
     <Router history={createBrowserHistory()}>
